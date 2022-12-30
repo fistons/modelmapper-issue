@@ -10,3 +10,12 @@ the tests)
 Uses:
  * Java 17
  * ModelMapper 3.1.1 (also tried with 2.3.3, the spring boot's 2.7.x bundled version)
+
+
+## How to reproduce
+
+```bash
+git clone https://github.com/fistons/modelmapper-issue
+cd modelmapper-issue
+mvn test
+```
