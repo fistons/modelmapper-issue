@@ -40,9 +40,9 @@ public class ModelMapperTest {
 
     Target target = mapper.map(source, Target.class);
 
-    Assertions.assertEquals(42, target.getId());
-    Assertions.assertEquals("hello", target.getName());
-    Assertions.assertEquals(true, target.isDisabled());
+    Assertions.assertEquals(52, target.getNewId());
+    Assertions.assertEquals("HELLO", target.getNewNameInUpperCase());
+    Assertions.assertEquals(false, target.isEnable());
   }
 
   @Test
@@ -53,8 +53,8 @@ public class ModelMapperTest {
 
     Target target = mapper.map(source, Target.class);
 
-    Assertions.assertEquals(42, target.getId());
-    Assertions.assertEquals("hello", target.getName());
-    Assertions.assertEquals(true, target.isDisabled());
+    Assertions.assertEquals(52, target.getNewId());
+    Assertions.assertEquals("HELLO", target.getNewNameInUpperCase());
+    Assertions.assertEquals(false, target.isEnable());
   }
 }
