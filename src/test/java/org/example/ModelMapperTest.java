@@ -16,6 +16,8 @@ public class ModelMapperTest {
 
     // Add a converter to map a Source implementation to Target
     mapper.addConverter(new SourceTargetConverter());
+    // Add a converter to map a SourceAsClass implementation to Target
+    mapper.addConverter(new SourceAsClassTargetConverter());
   }
   @Test
   public void test_implementationInTest() {
@@ -46,10 +48,23 @@ public class ModelMapperTest {
   }
 
   @Test
-  public void test_class() {
+  public void test_interfaceImplementation() {
 
     // Using a concrete class
     SourceImplementation source = new SourceImplementation(42, "hello", true);
+
+    Target target = mapper.map(source, Target.class);
+
+    Assertions.assertEquals(52, target.getNewId());
+    Assertions.assertEquals("HELLO", target.getNewNameInUpperCase());
+    Assertions.assertEquals(false, target.isEnable());
+  }
+
+  @Test
+  public void test_sourceAsClass() {
+
+    // Using a concrete class
+    SourceAsClass source = new SourceAsClass(42, "hello", true);
 
     Target target = mapper.map(source, Target.class);
 
